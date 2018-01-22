@@ -1,0 +1,228 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.empsystem</groupId>
+  <artifactId>empsystem</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>empsystem Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+  <!-- 设置系统参数 -->
+  <properties>
+    <!-- 统一源码的编码方式 -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- 统一各个框架版本 -->
+    <struts.version>2.5.10</struts.version>
+    <spring.version>4.3.8.RELEASE</spring.version>
+    <hibernate.version>5.1.7.Final</hibernate.version>
+  </properties>
+
+  <!-- 配置依赖关系 -->
+  <dependencies>
+    <!-- 引入Servlet API -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- jsp-api -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jsp-api</artifactId>
+      <version>2.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Junit依赖 -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- Spring 核心依赖 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- Spring web依赖 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- Spring整合ORM框架依赖 -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+    <!-- AspectJ依赖 -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.8.10</version>
+    </dependency>
+    <!-- Struts2 核心依赖 -->
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-core</artifactId>
+      <version>${struts.version}</version>
+    </dependency>
+    <!-- 整合json插件 -->
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-json-plugin</artifactId>
+      <version>${struts.version}</version>
+    </dependency>
+    <!-- Struts2和Spring整合依赖 -->
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-spring-plugin</artifactId>
+      <version>${struts.version}</version>
+    </dependency>
+    <!-- Hibernate 核心依赖 -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
+    <!-- MySQL 依赖 -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.42</version>
+    </dependency>
+    <!-- C3P0 依赖 -->
+    <dependency>
+      <groupId>com.mchange</groupId>
+      <artifactId>c3p0</artifactId>
+      <version>0.9.5</version>
+    </dependency>
+    <!-- SLF4J依赖 -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.25</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>empsystem</finalName>
+      <plugins>
+        <!-- 配置Tomcat插件 -->
+        <plugin>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat7-maven-plugin</artifactId>
+          <version>2.1</version>
+          <configuration>
+            <port>8080</port>
+            <path>/empsystem</path>
+            <uriEncoding>${project.build.sourceEncoding}</uriEncoding>
+            <finalName>empsystem</finalName>
+            <server>tomcat7</server>
+          </configuration>
+        </plugin>
+
+        <!-- compiler插件, 设定JDK版本 -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.1</version>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+            <encoding>${project.build.sourceEncoding}</encoding>
+            <!-- 指定编码格式，否则在DOS下运行mvn compile命令时会出现莫名的错误，因为系统默认使用GBK编码 -->
+          </configuration>
+        </plugin>
+        <!-- <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>2.6</version>
+          <configuration>
+            <encoding>${project.build.sourceEncoding}</encoding>
+            &lt;!&ndash; 指定编码格式，否则在DOS下运行mvn命令时当发生文件资源copy时将使用系统默认使用GBK编码 &ndash;&gt;
+          </configuration>
+        </plugin>-->
+      </plugins>
+  </build>
+</project>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

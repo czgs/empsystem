@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<!-- 设置系统参数 -->
+	<constant name="struts.devMode" value="true"/>
+	<constant name="struts.ui.theme" value="simple"/>
+
+	<!-- 设置Action -->
+	<package name="mytest" extends="json-default">
+		<global-allowed-methods>regex:.*</global-allowed-methods>
+		
+		<!--处理用户的Acton-->
+		<action name="userAction_*" method="{1}" class="userAction">
+			<!--去到用户登录页面-->
+			<result name="input">${pageContext.request.contextPath}/index.jsp</result>
+			<!-- 登录成功,转型到主页 -->
+			<result name="main" type="redirect">${pageContext.request.contextPath}/pages/main.jsp</result>
+
+			<result name="msg" type="json">
+				<param name="includeProperties">msg</param>
+			</result>
+			<!--查询所有用户-->
+			<result name="userList" type="json">
+				<param name="includeProperties">bean.*</param>
+			</result>
+			<!--去到添加用户页面-->
+			<!--<result name="toAddUser" type="redirect">${pageContext.request.contextPath}/pages/user/addSuperUser.jsp?msg=${msg}</result>-->
+			<!--去到修改用户信息页面-->
+			<result name="toUpdateUser" type="json">
+				<param name="includeProperties">user.*</param>
+			</result>
+
+		</action>
+
+		<!--处理部门的Action-->
+		<action name="deptAction_*" method="{1}" class="deptAction">
+			<result name="msg" type="json">
+				<param name="includeProperties">msg</param>
+			</result>
+			<result name="toDeptList" type="json">
+				<param name="includeProperties">deptList.*</param>
+			</result>
+			<result name="toUpdateDept" type="json">
+				<param name="includeProperties">dept.*</param>
+			</result>
+		</action>
+
+		<!--处理基本工资的Action-->
+		<action name="salaryAction_*" method="{1}" class="salaryAction">
+			<result name="msg" type="json">
+				<param name="includeProperties">msg</param>
+			</result>
+			<result name="toSalaryList" type="json">
+				<param name="includeProperties">salaryList.*</param>
+			</result>
+			<!--返回修改工资信息的Json-->
+			<result name="toUpdateSalary" type="json">
+				<param name="includeProperties">salary.*</param>
+			</result>
+		</action>
+
+		<!--处理公告的Action-->
+		<action name="noticeAction_*" method="{1}" class="noticeAction">
+			<result name="msg" type="json">
+				<param name="includeProperties">msg</param>
+			</result>
+			<result name="noticeList" type="json">
+				<param name="includeProperties">bean.*</param>
+			</result>
+			<result name="notice" type="json">
+				<param name="includeProperties">notice.*</param>
+			</result>
+		</action>
+
+		<!--处理员工的Action-->
+		<action name="empAction_*" method="{1}" class="empAction">
+			<result name="msg" type="json">
+				<param name="includeProperties">msg</param>
+			</result>
+			<result name="toEmpList" type="json">
+				<param name="includeProperties">empList.*</param>
+			</result>
+			<result name="toEmpInfo" type="json">
+				<param name="includeProperties">empInfo.*</param>
+			</result>
+		</action>
+
+		<!--处理员工考勤的Action-->
+		<action name="salaryInfoAction_*" method="{1}" class="salaryInfoAction">
+			<result name="msg" type="json">
+				<param name="includeProperties">msg</param>
+			</result>
+			<result name="salaryInfoList" type="json">
+				<param name="includeProperties">salaryInfoList.*</param>
+			</result>
+			<result name="salaryInfoByIdList" type="json">
+				<param name="includeProperties">salaryInfoByIdList.*</param>
+			</result>
+			<result name="toUpdateSalaryInfo" type="json">
+				<param name="includeProperties">salaryInfo.*</param>
+			</result>
+		</action>
+
+		<!--处理实际工资的Action-->
+		<action name="realSalaryAction_*" method="{1}" class="realSalaryAction">
+			<result name="realSalaryList" type="json">
+				<param name="includeProperties">realSalaryList.*</param>
+			</result>
+			<result name="realAndvariateList" type="json">
+				<param name="includeProperties">realAndvariateList.*</param>
+			</result>
+		</action>
+	</package>
+</struts>
+
+
+
+
+
